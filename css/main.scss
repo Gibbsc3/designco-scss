@@ -2,10 +2,15 @@ $font-stack:    Helvetica, sans-serif;
 $text-color: #4a4a4a;
 $background-color:#f7f7f7;
 $attention:#fe0b0b;
-/*
-grayish-black
-light gray
-*/
+@mixin responsebox($float,$width) {
+  float:$float;
+  width:$width;
+}
+.two-thirds {
+  width: 66%;
+  margin: 0 auto;
+
+}
 
 * {
     -webkit-box-sizing: border-box;
@@ -17,12 +22,7 @@ light gray
 ----------------------------------------------------
  */
 
-// nav {
-//     background-color: $background-color;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
+
 
 nav {
   background-color: $background-color;
@@ -40,8 +40,7 @@ nav {
       color: $attention;
   }
   .navbar {
-  width: 66%;
-  margin: 0 auto;
+  @extend .two-thirds;
   padding: 20px;
   border-top: 3px solid red;
 }
@@ -140,9 +139,6 @@ main {
     .pic-4 {
       margin-bottom: 10px;
     }
-    .content-2 > img {
-        /*margin: 2px 2px 2px 2px;*/
-    }
     .content-2 > div:last-child {
       margin-right: 10px;
     }
@@ -168,8 +164,7 @@ Footer style
  */
 
 footer {
-    width: 66%;
-    margin: 0 auto;
+    @extend .two-thirds;
     .col-span-1 > h3 {
         margin: 0 0 10px 0 !important;
         color: $attention;
@@ -192,12 +187,8 @@ footer {
         font-size: 14px;
         font-family: $font-stack;
     }
-    .col-span-1 {
-        float: left;
-        width: 30%;
-    }
-    .col-span-3 {
-        float: left;
-        width: 70%;
+    .col-span-1 {@include responsebox(left,30%);}
+
+    .col-span-3 { @include responsebox(left,70%);
     }
 }
